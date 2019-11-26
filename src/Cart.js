@@ -40,19 +40,16 @@ class Cart extends React.Component {
             const quantity = cartItems[itemId];
             return (
               <tr key={itemId}>
-                <td>
-                  <tr>
-                    <td
-                      className="img-item"
-                      style={{
-                        width: 40,
-                        height: 40,
-                        backgroundImage: `url(${item.img_url})`
-                      }}
-                    ></td>
-                    <td> {item.name}</td>
-                  </tr>
-                </td>
+                <td
+                  className="img-item"
+                  style={{
+                    width: 40,
+                    height: 40,
+                    backgroundImage: `url(${item.img_url})`
+                  }}
+                ></td>
+                <td> {item.name}</td>
+
                 <td>
                   <button onClick={() => removeFromCart(itemId)}>-</button>{" "}
                   {quantity}
