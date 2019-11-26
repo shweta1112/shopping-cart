@@ -29,27 +29,39 @@ class Cart extends React.Component {
         <div>Order Summary</div>
         <table>
           <tr>
+            <th></th>
             <th>Item({totalItems})</th>
             <th>Qty</th>
             <th>Price</th>
           </tr>
-          <tr>
-            {Object.keys(cartItems).map(itemId => {
-              const item = itemMap[itemId];
-              const quantity = cartItems[itemId];
-              return (
-                <tr key={itemId}>
-                  <td>Name: {item.name}</td>
-                  <td>
-                    <button onClick={() => removeFromCart(itemId)}>-</button>{" "}
-                    {quantity}
-                    <button onClick={() => addToCart(itemId)}>+</button>
-                  </td>
-                  <td>Price: {item.price * quantity}</td>
-                </tr>
-              );
-            })}
-          </tr>
+
+          {Object.keys(cartItems).map(itemId => {
+            const item = itemMap[itemId];
+            const quantity = cartItems[itemId];
+            return (
+              <tr key={itemId}>
+                <td>
+                  <tr>
+                    <td
+                      className="img-item"
+                      style={{
+                        width: 40,
+                        height: 40,
+                        backgroundImage: `url(${item.img_url})`
+                      }}
+                    ></td>
+                    <td> {item.name}</td>
+                  </tr>
+                </td>
+                <td>
+                  <button onClick={() => removeFromCart(itemId)}>-</button>{" "}
+                  {quantity}
+                  <button onClick={() => addToCart(itemId)}>+</button>
+                </td>
+                <td>{item.price * quantity}</td>
+              </tr>
+            );
+          })}
         </table>
         <div>
           <div>Total</div>
