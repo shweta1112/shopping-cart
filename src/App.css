@@ -62,11 +62,12 @@ table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 55%;
-  border-color: grey;
+  flex: 2;
 }
 
 td,
 th {
+  border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
 }
@@ -77,4 +78,18 @@ p {
 
 .strike {
   color: red;
+}
+.item-cart {
+  display: flex;
+}
+.item-price-details {
+  flex: 1;
+}
+.price-table {
+  margin-left: 20px;
+  width: 40%;
+}
+
+.order-total {
+  background-color: #d8d8d8;
 }

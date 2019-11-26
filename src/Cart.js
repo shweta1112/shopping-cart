@@ -24,54 +24,69 @@ class Cart extends React.Component {
     console.log(cartItems);
     console.log(itemMap);
     return (
-      <div className="">
+      <div>
         <Link to="/">Item List</Link>
         <div>Order Summary</div>
-        <table>
-          <tr>
-            <th></th>
-            <th>Item({totalItems})</th>
-            <th>Qty</th>
-            <th>Price</th>
-          </tr>
+        <div className="item-cart">
+          <table>
+            <tr>
+              <th></th>
+              <th>Item({totalItems})</th>
+              <th>Qty</th>
+              <th>Price</th>
+            </tr>
 
-          {Object.keys(cartItems).map(itemId => {
-            const item = itemMap[itemId];
-            const quantity = cartItems[itemId];
-            return (
-              <tr key={itemId}>
-                <td
-                  className="img-item"
-                  style={{
-                    width: 40,
-                    height: 40,
-                    backgroundImage: `url(${item.img_url})`
-                  }}
-                ></td>
-                <td> {item.name}</td>
+            {Object.keys(cartItems).map(itemId => {
+              const item = itemMap[itemId];
+              const quantity = cartItems[itemId];
+              return (
+                <tr key={itemId}>
+                  <td
+                    className="img-item"
+                    style={{
+                      width: 40,
+                      height: 40,
+                      backgroundImage: `url(${item.img_url})`
+                    }}
+                  ></td>
+                  <td> {item.name}</td>
 
-                <td>
-                  <button onClick={() => removeFromCart(itemId)}>-</button>{" "}
-                  {quantity}
-                  <button onClick={() => addToCart(itemId)}>+</button>
-                </td>
-                <td>{item.price * quantity}</td>
+                  <td>
+                    <button onClick={() => removeFromCart(itemId)}>-</button>{" "}
+                    {quantity}
+                    <button onClick={() => addToCart(itemId)}>+</button>
+                  </td>
+                  <td>{item.price * quantity}</td>
+                </tr>
+              );
+            })}
+          </table>
+          <aside className="item-price-details">
+            <table className="price-table">
+              <tr>
+                <th>Total</th>
+                <th></th>
               </tr>
-            );
-          })}
-        </table>
-        <div>
-          <div>Total</div>
-          <p>
-            <label>Items({totalItems}):</label> {totalPrice}
-          </p>
-          <p>
-            <label>Discount:</label> {totalDiscount}{" "}
-          </p>
-          <p>
-            <label>Order Total: </label>
-            {totalPrice - totalDiscount}
-          </p>
+              <tr>
+                <td>
+                  <label>Items({totalItems}):</label>
+                </td>
+                <td>{totalPrice}</td>
+              </tr>
+              <tr>
+                <td>
+                  <label>Discount:</label>
+                </td>
+                <td>{totalDiscount}</td>
+              </tr>
+              <tr className="order-total">
+                <td>
+                  <label>Order Total: </label>
+                </td>
+                <td>{totalPrice - totalDiscount}</td>
+              </tr>
+            </table>
+          </aside>
         </div>
       </div>
     );
