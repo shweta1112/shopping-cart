@@ -1,0 +1,80 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 15%;
+  margin-right: 20%;
+}
+.item-card {
+  border-style: groove;
+  padding: 20px;
+  margin: 10px;
+  height: 150px;
+  width: 145px;
+}
+.img-item {
+  margin-left: 16px;
+  margin-top: -34px;
+}
+.discount-tag {
+  background-color: #7aed66;
+  width: 40px;
+  height: 20px;
+  text-align: left;
+  padding-top: 4px;
+  margin-left: -20px;
+  font-size: 10px;
+}
+.item-detail {
+  background-color: #d8d8d8;
+  width: 190px;
+  margin-left: -23px;
+  display: flex;
+  margin-top: 20px;
+}
+.add-item {
+  flex: 1;
+  margin-top: 33px;
+  margin-right: -57px;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 55%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+p {
+  margin: 0px;
+}
+
+.strike {
+  color: red;
+}
